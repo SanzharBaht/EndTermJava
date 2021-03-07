@@ -6,9 +6,13 @@ import java.awt.event.ActionListener;
 public class MainMenu extends JFrame {
     private JButton Kitchen;
     private JPanel rootPanel;
+    private JTextField totalPriceTextField;
+    private JFormattedTextField formattedTextField1;
+    private JButton submitButton;
     private JButton kitchenButton;
     private JButton barButton;
     private JButton confectioneryButton;
+    private JButton confectionaryButton;
 
     public MainMenu(){
         add(rootPanel);
@@ -32,7 +36,7 @@ public class MainMenu extends JFrame {
                 bar.setVisible(true);
             }
         });
-        confectioneryButton.addActionListener(new ActionListener() {
+        confectionaryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);

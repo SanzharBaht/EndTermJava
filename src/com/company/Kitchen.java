@@ -15,6 +15,7 @@ public class Kitchen extends JFrame{
     private JButton backButton;
     private JFormattedTextField formattedTextField1;
     private JTextField totalPrice;
+    private JButton clearAllButton;
 
     public JPanel getKitchen(){
         return Kitchen;

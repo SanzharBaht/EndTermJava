@@ -15,8 +15,9 @@ public class Confectionary extends JFrame {
     private JButton pieButton;
     private JButton candyButton;
     private JButton biscuitButton;
-    private JButton totalPriceButton;
-    private JButton button6;
+    private JTextField totalPriceTextField;
+    private JFormattedTextField formattedTextField1;
+    private JButton clearAllButton;
 
     public JPanel getConfectionary(){
         return Confectionary;
@@ -25,7 +26,7 @@ public class Confectionary extends JFrame {
         CreateTable();
         add(Confectionary);
         setTitle("Kitchen Menu");
-        setSize(400, 500);
+        setSize(700, 500);
 
         backButton.addActionListener(new ActionListener() {
             @Override

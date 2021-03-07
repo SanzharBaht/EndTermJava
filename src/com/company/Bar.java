@@ -12,10 +12,12 @@ public class Bar extends JFrame{
     private JPanel Bar;
     private JButton teaButton;
     private JButton lemonadeButton;
-    private JButton button2;
+    private JButton beerButton;
     private JButton juiceButton;
-    private JButton totalPriceButton;
-    private JButton button6;
+    private JTextField totalPriceTextField;
+    private JFormattedTextField formattedTextField1;
+    private JButton clearAllButton;
+    private JTable table2;
 
     public JPanel getBar(){
         return Bar;
@@ -24,7 +26,7 @@ public class Bar extends JFrame{
         CreateTable();
         add(Bar);
         setTitle("Kitchen Menu");
-        setSize(400, 500);
+        setSize(700, 500);
 
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -46,8 +48,9 @@ public class Bar extends JFrame{
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         //Object[] columns = {"Name","Price"};
         model.setDataVector(data,new String[] {"Name","Price","sad"});
-        table1.setTableHeader(null);
-        table1.getTableHeader();
+
     }
 
-}
+    }
+
+
