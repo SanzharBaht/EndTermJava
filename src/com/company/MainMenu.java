@@ -6,6 +6,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class MainMenu extends Values {
@@ -53,6 +57,7 @@ public class MainMenu extends Values {
             public void actionPerformed(ActionEvent e) {
                 result=0;
                 priceTotal.setValue(result);
+                System.out.println(insertPilaf);
                 try {
                     FileWriter fileWriter = new FileWriter(file);
                     priceTotal.write(fileWriter);
@@ -60,6 +65,28 @@ public class MainMenu extends Values {
                     ioException.printStackTrace();
                 }
                 JOptionPane.showMessageDialog(rootPane,"Submitted successfully");
+                Statement st;
+                Connection connection = null;
+                String host = "localhost";
+                String port = "5432";
+                String db_name = "JavaEndterm";
+                String username = "postgres";
+                String password = "0000";
+                try {
+                    Class.forName("org.postgresql.Driver");
+                    // Establish the connection
+                    //connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "0000");
+                    connection = DriverManager.getConnection("jdbc:postgresql://" + host + ":" + port + "/" + db_name, username, password);
+
+                    st = connection.createStatement();
+
+                    ResultSet rs = st.executeQuery("Insert into requests(waiter_id,product_id,product_name,price,time,request_id) Values(10001,1001,'Pilaf',"+insertPilaf+",'00:10:00',1)");
+
+                    st.close();
+                    connection.close();
+                }catch(Exception r) {
+                    System.out.println(r);
+                }
             }
         });
     }

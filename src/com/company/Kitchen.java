@@ -42,6 +42,7 @@ public class Kitchen extends Values{
 
         pilafButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                insertPilaf+=700;
                 result+=700;
                 priceTotal.setValue(result);
                 try {

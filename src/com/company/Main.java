@@ -13,7 +13,6 @@ public class Main {
             public void run() {
                 MainMenu myGUIform = new MainMenu();
                 myGUIform.setVisible(true);
-
             }
         });
 
