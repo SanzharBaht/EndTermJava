@@ -93,6 +93,18 @@ public class Bar extends Values{
                 }
             }
         });
+        clearAllButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                result=0;
+                priceTotal.setValue(result);
+                try {
+                    FileWriter fileWriter = new FileWriter(file);
+                    priceTotal.write(fileWriter);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
     }
     public void CreateTable(){
         Object[][] data = {

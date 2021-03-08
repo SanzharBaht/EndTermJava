@@ -50,18 +50,6 @@ public class Kitchen extends Values{
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
-
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(readfile))) {
-                        String line = "700";
-
-                        writer.newLine();
-                    }
-                }
-                catch (IOException r) {
-                    r.printStackTrace();
-                }
-
             }
         });
         mantiButton.addActionListener(new ActionListener() {
@@ -103,6 +91,18 @@ public class Kitchen extends Values{
                     ioException.printStackTrace();
                 }
 
+            }
+        });
+        clearAllButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                result=0;
+                priceTotal.setValue(result);
+                try {
+                    FileWriter fileWriter = new FileWriter(file);
+                    priceTotal.write(fileWriter);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
     }
