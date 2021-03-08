@@ -10,7 +10,7 @@ public class ConnectDB {
         String db_name = "JDBC";
         String username = "postgres";
         String password = "0000";
-
+        Statement st = null;
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -25,6 +25,7 @@ public class ConnectDB {
             } else {
                 System.out.println("Database failed to open \n");
             }
+            st = connection.createStatement();
 
         }catch(Exception e) {
             System.out.println(e);

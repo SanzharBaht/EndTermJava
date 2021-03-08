@@ -8,5 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="postgresql-42.2.18" level="project" />
+    <orderEntry type="library" name="ormlite-jdbc-5.3" level="project" />
+    <orderEntry type="library" name="ormlite-core-5.3" level="project" />
   </component>
 </module>

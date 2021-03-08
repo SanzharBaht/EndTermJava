@@ -59,7 +59,7 @@ public class MainMenu extends Values {
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
-
+                JOptionPane.showMessageDialog(rootPane,"Submitted successfully");
             }
         });
     }

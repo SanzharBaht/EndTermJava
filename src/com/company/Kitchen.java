@@ -4,10 +4,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Kitchen extends Values{
@@ -23,6 +20,7 @@ public class Kitchen extends Values{
     private JButton clearAllButton;
 
     public String file = "C:\\Users\\Ghost\\Desktop\\end\\EndTermJava\\src\\com\\company\\extra.txt";
+    public String readfile = "C:\\Users\\Ghost\\Desktop\\end\\EndTermJava\\src\\com\\company\\read.txt";
     public JPanel getKitchen(){
         return Kitchen;
     }
@@ -51,6 +49,17 @@ public class Kitchen extends Values{
                     priceTotal.write(fileWriter);
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
+                }
+
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(readfile))) {
+                        String line = "700";
+
+                        writer.newLine();
+                    }
+                }
+                catch (IOException r) {
+                    r.printStackTrace();
                 }
 
             }
