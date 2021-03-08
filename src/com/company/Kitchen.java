@@ -4,8 +4,13 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
-public class Kitchen extends JFrame{
+public class Kitchen extends Values{
     private JButton mantiButton;
     private JButton borschtButton;
     private JPanel Kitchen;
@@ -13,37 +18,97 @@ public class Kitchen extends JFrame{
     private JTable table1;
     private JButton lagmanButton;
     private JButton backButton;
-    private JFormattedTextField formattedTextField1;
+    private JFormattedTextField priceTotal;
     private JTextField totalPrice;
     private JButton clearAllButton;
 
+    public String file = "C:\\Users\\Ghost\\Desktop\\end\\EndTermJava\\src\\com\\company\\extra.txt";
     public JPanel getKitchen(){
         return Kitchen;
     }
 
     public Kitchen() {
         CreateTable();
+        Insert();
         add(Kitchen);
         setTitle("Kitchen Menu");
-        setSize(400, 500);
-
+        setSize(700, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         backButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
-
                 setVisible(false);
                 MainMenu mainMenu = new MainMenu();
-                mainMenu .setVisible(true);
+                mainMenu.setVisible(true);
             }
         });
+
         pilafButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
+                result+=700;
+                priceTotal.setValue(result);
+                try {
+                    FileWriter fileWriter = new FileWriter(file);
+                    priceTotal.write(fileWriter);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
+            }
+        });
+        mantiButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                result+=600;
+                priceTotal.setValue(result);
+                try {
+                    FileWriter fileWriter = new FileWriter(file);
+                    priceTotal.write(fileWriter);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
 
 
             }
         });
+        lagmanButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                result+=1000;
+                priceTotal.setValue(result);
+                try {
+                    FileWriter fileWriter = new FileWriter(file);
+                    priceTotal.write(fileWriter);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
 
+            }
+        });
+        borschtButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                result+=500;
+                priceTotal.setValue(result);
+                try {
+                    FileWriter fileWriter = new FileWriter(file);
+                    priceTotal.write(fileWriter);
+
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
+            }
+        });
+    }
+    public void Insert(){
+        try {
+            File input = new File(file);
+            Scanner myScanner = new Scanner(input);
+            while (myScanner.hasNextLine()){
+                result = myScanner.nextInt();
+                priceTotal.setValue(result);
+            }
+            myScanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
     public void CreateTable(){
         Object[][] data = {

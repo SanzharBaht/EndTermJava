@@ -86,13 +86,14 @@
           <text value="Total price:"/>
         </properties>
       </component>
-      <component id="8b4f9" class="javax.swing.JFormattedTextField" binding="formattedTextField1" default-binding="true">
+      <component id="8b4f9" class="javax.swing.JFormattedTextField" binding="priceTotal">
         <constraints>
           <grid row="16" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="70" height="30"/>
           </grid>
         </constraints>
         <properties>
+          <editable value="false"/>
           <text value=""/>
         </properties>
       </component>
